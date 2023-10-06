@@ -1,0 +1,146 @@
+
+.header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.header-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.header-nav li {
+    display: inline-block;
+    margin-left: 20px; 
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #fff; 
+} 
+
+body {
+    background-image: url('src/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-form {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.auth-form button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.auth-form button:hover {
+    background-color: #0056b3;
+}
+
+.feedback-form {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 500px;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.feedback-form .radio-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.feedback-form .radio-buttons input[type="radio"] {
+    margin-right: 5px;
+}
+
+.feedback-form select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.feedback-form textarea {
+    resize: none;
+}
+
+.feedback-form input[type="file"] {
+    margin-bottom: 15px;
+}
+
+.feedback-form .checkbox-label {
+    display: block;
+    margin-top: 10px;
+}
+
+.feedback-form button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.feedback-form button:hover {
+    background-color: #0056b3;
+}
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Форма Регистрации</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <ul>
+                <li><a href="auth.html">Войти</a></li>
+                <li><a href="feedback.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <form class="auth-form" action="https://httpbin.org/post" method="POST">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label class="checkbox-label" for="remember-me">
+                <input type="checkbox" id="remember-me" name="remember-me">
+                Запомнить меня
+            </label>
+
+            <button type="submit">Войти</button>
+
+        </form>
+    </div>
+</body>
+
+</html>
