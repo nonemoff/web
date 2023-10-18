@@ -1,0 +1,88 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+    display: flex;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    grid-row: 1;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0%;
+    grid-row: 3;
+    width: 100%;
+}
+
+main {
+  flex: 1;
+  grid-row: 1;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+p, h1, ul {
+  margin: 0 10%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.header-button {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.header-button:nth-of-type(1) {
+    flex: 1 100px;
+}
+.header-button:nth-of-type(2) {
+    flex: 2 140px;
+}
+.header-button:nth-of-type(3) {
+    flex: 2 160px;
+}
+
+.header-button:hover {
+    background-color: #555;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.card {
+    width: 300px;
+    padding: 10px;
+    margin: 50px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
