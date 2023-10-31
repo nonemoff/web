@@ -22,3 +22,4 @@ for (let i = 0; i < 31; i++){
   const encodedMessage = cesar(messageToEncode, i, 'decode');
   console.log(encodedMessage);
 }
+// хакуна матата
