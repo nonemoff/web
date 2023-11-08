@@ -90,8 +90,6 @@ body {
     font-weight: bold;
 }
 
-.feedback-form input[type="text"],
-.feedback-form input[type="email"],
 .feedback-form textarea {
     width: 80%;
     padding: 10px;
