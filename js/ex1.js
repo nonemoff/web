@@ -1,9 +1,9 @@
 function pow(a, b) {
-    let total = a
+    let total = a;
     for (let i = 1; i < b; i++) {
-        total = total * a
+        total = total * a;
     }
-    return total
+    return total;
 }
 
-console.log(pow(2, 10))
+console.log(pow(2, 10));

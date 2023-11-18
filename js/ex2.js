@@ -1,17 +1,17 @@
 function gcd(a, b) {
-    let min
+    let min;
     if (a < b) {
-        min = a
+        min = a;
     } else {
-        min = b
+        min = b;
     }
-    let del
+    let del;
     for (let i = 1; i <= min; i++) {
         if (a % i == 0 && b % i == 0) {
-            del = i
+            del = i;
         }
     }
-    return del
+    return del;
 }
 
-console.log(gcd(35, 56))
+console.log(gcd(35, 56));
