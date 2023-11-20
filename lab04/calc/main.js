@@ -7,11 +7,11 @@
 // Possible operators: +, -, *, /.
 
 function priority(operation) {
-  if (operation == "+" || operation == "-") {
-    return 1;
-  } else {
-    return 2;
-  }
+    if (operation == "+" || operation == "-") {
+        return 1;
+    } else {
+        return 2;
+    }
 }
 
 // Проверка, является ли строка str числом.
@@ -19,7 +19,7 @@ function priority(operation) {
 // Checking if the string "str" contains a number.
 
 function isNumeric(str) {
-  return /^\d+(.\d+){0,1}$/.test(str);
+    return /^\d+(.\d+){0,1}$/.test(str);
 }
 
 // Проверка, является ли строка str цифрой.
@@ -27,7 +27,7 @@ function isNumeric(str) {
 // Checking if the string "str" contains a digit.
 
 function isDigit(str) {
-  return /^\d{1}$/.test(str);
+    return /^\d{1}$/.test(str);
 }
 
 // Проверка, является ли строка str оператором.
@@ -35,7 +35,7 @@ function isDigit(str) {
 // Checking if the string "str" contains an operator.
 
 function isOperation(str) {
-  return /^[\+\-\*\/]{1}$/.test(str);
+    return /^[\+\-\*\/]{1}$/.test(str);
 }
 
 // Функция tokenize принимает один аргумент -- строку
@@ -49,25 +49,25 @@ function isOperation(str) {
 // is an array of tokens.
 
 function tokenize(str) {
-  let tokens = [];
-  let lastNumber = "";
-  for (char of str) {
-    if (isDigit(char) || char == ".") {
-      lastNumber += char;
-    } else {
-      if (lastNumber.length > 0) {
+    let tokens = [];
+    let lastNumber = "";
+    for (char of str) {
+        if (isDigit(char) || char == ".") {
+            lastNumber += char;
+        } else {
+            if (lastNumber.length > 0) {
+                tokens.push(lastNumber);
+                lastNumber = "";
+            }
+        }
+        if (isOperation(char) || char == "(" || char == ")") {
+            tokens.push(char);
+        }
+    }
+    if (lastNumber.length > 0) {
         tokens.push(lastNumber);
-        lastNumber = "";
-      }
     }
-    if (isOperation(char) || char == "(" || char == ")") {
-      tokens.push(char);
-    }
-  }
-  if (lastNumber.length > 0) {
-    tokens.push(lastNumber);
-  }
-  return tokens;
+    return tokens;
 }
 
 // Функция compile принимает один аргумент -- строку
@@ -91,33 +91,33 @@ function tokenize(str) {
 // (https://en.wikipedia.org/wiki/Shunting_yard_algorithm).
 
 function compile(str) {
-  let out = [];
-  let stack = [];
-  for (token of tokenize(str)) {
-    if (isNumeric(token)) {
-      out.push(token);
-    } else if (isOperation(token)) {
-      while (
-        stack.length > 0 &&
+    let out = [];
+    let stack = [];
+    for (token of tokenize(str)) {
+        if (isNumeric(token)) {
+            out.push(token);
+        } else if (isOperation(token)) {
+            while (
+                stack.length > 0 &&
         isOperation(stack[stack.length - 1]) &&
         priority(stack[stack.length - 1]) >= priority(token)
-      ) {
-        out.push(stack.pop());
-      }
-      stack.push(token);
-    } else if (token == "(") {
-      stack.push(token);
-    } else if (token == ")") {
-      while (stack.length > 0 && stack[stack.length - 1] != "(") {
-        out.push(stack.pop());
-      }
-      stack.pop();
+            ) {
+                out.push(stack.pop());
+            }
+            stack.push(token);
+        } else if (token == "(") {
+            stack.push(token);
+        } else if (token == ")") {
+            while (stack.length > 0 && stack[stack.length - 1] != "(") {
+                out.push(stack.pop());
+            }
+            stack.pop();
+        }
     }
-  }
-  while (stack.length > 0) {
-    out.push(stack.pop());
-  }
-  return out.join(" ");
+    while (stack.length > 0) {
+        out.push(stack.pop());
+    }
+    return out.join(" ");
 }
 
 // Функция evaluate принимает один аргумент -- строку
@@ -137,27 +137,27 @@ function compile(str) {
 // (https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
 function evaluate(str) {
-  let tokens = compile(str).split(" ");
-  let stack = [];
+    let tokens = compile(str).split(" ");
+    let stack = [];
 
-  const operators = {
-    "+": (a, b) => a + b,
-    "-": (a, b) => b - a,
-    "*": (a, b) => a * b,
-    "/": (a, b) => b / a,
-  };
+    const operators = {
+        "+": (a, b) => a + b,
+        "-": (a, b) => b - a,
+        "*": (a, b) => a * b,
+        "/": (a, b) => b / a,
+    };
 
-  for (const token of tokens) {
-    if (!isNaN(token)) {
-      stack.push(parseFloat(token));
-    } else if (operators.hasOwnProperty(token)) {
-      const operand1 = stack.pop();
-      const operand2 = stack.pop();
-      const result = operators[token](operand1, operand2);
-      stack.push(result);
+    for (const token of tokens) {
+        if (!isNaN(token)) {
+            stack.push(parseFloat(token));
+        } else if (operators.hasOwnProperty(token)) {
+            const operand1 = stack.pop();
+            const operand2 = stack.pop();
+            const result = operators[token](operand1, operand2);
+            stack.push(result);
+        }
     }
-  }
-  return stack[0];
+    return stack[0];
 }
 
 // Функция clickHandler предназначена для обработки
@@ -188,49 +188,49 @@ function evaluate(str) {
 // handler for each button separately.
 
 
-function displayClear(){
-  let target = document.getElementById("display");
-  target.textContent = "";
+function displayClear() {
+    let target = document.getElementById("display");
+    target.textContent = "";
 }
 
-function addDigit(ch){
-  let target = document.getElementById("display");
-  target.textContent += ch;
+function addDigit(ch) {
+    let target = document.getElementById("display");
+    target.textContent += ch;
 }
 
-function addOperation(ch){
-  let target = document.getElementById("display");
-  let temp = " " + ch + " ";
-  target.textContent += temp;
+function addOperation(ch) {
+    let target = document.getElementById("display");
+    let temp = " " + ch + " ";
+    target.textContent += temp;
 }
 
-function displayResult(){
-  let display = document.getElementById("display");
-  let input = display.textContent;
-  let output = evaluate(input);
-  display.textContent = output;
+function displayResult() {
+    let display = document.getElementById("display");
+    let input = display.textContent;
+    let output = evaluate(input);
+    display.textContent = output;
 }
   
 
 function clickHandler(event) {
-  let target = event.target;
-  // alert(target.className.split(" ")[1]);
-  if (target.className.split(" ")[0] === "key") {
-    switch (target.className.split(" ")[1]) {
-      case "clear":
-        displayClear();
-        break;
-      case "digit":
-        addDigit(target.textContent);
-        break;
-      case "operation":
-        addOperation(target.textContent);
-        break;
-      case "result":
-        displayResult();
-        break;
+    let target = event.target;
+    // alert(target.className.split(" ")[1]);
+    if (target.className.split(" ")[0] === "key") {
+        switch (target.className.split(" ")[1]) {
+        case "clear":
+            displayClear();
+            break;
+        case "digit":
+            addDigit(target.textContent);
+            break;
+        case "operation":
+            addOperation(target.textContent);
+            break;
+        case "result":
+            displayResult();
+            break;
+        }
     }
-  }
 }
 
 // Назначьте нужные обработчики событий.
@@ -238,6 +238,6 @@ function clickHandler(event) {
 // Set event handlers.
 
 window.onload = function () {
-  let buttons = document.getElementById("buttons");
-  buttons.addEventListener("click", clickHandler);
+    let buttons = document.getElementById("buttons");
+    buttons.addEventListener("click", clickHandler);
 };
