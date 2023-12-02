@@ -146,18 +146,6 @@ function searchBtnHandler() {
     }
 }
 
-function autocomplete(query) {
-    let autocompleteUrl = 'http://cat-facts-api.std-900.ist.mospolytech.ru/autocomplete?q=' + query;
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', autocompleteUrl);
-    xhr.responseType = 'json';
-    xhr.onload = function () {
-        let suggestions = this.response;
-        showAutocompleteSuggestions(suggestions);
-    };
-    xhr.send();
-}
-
 function showAutocompleteSuggestions(suggestions) {
     let autocompleteDropdown = document.querySelector('.autocomplete-dropdown');
     // Clear existing suggestions
@@ -181,7 +169,20 @@ function showAutocompleteSuggestions(suggestions) {
     autocompleteDropdown.style.display = 'block';
 }
 
-function autocompleteHandler(){
+function autocomplete(query) {
+    let acUrl = 'http://cat-facts-api.std-900.ist.mospolytech.ru/autocomplete';
+    acUrl += "?q=" + query;
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', acUrl);
+    xhr.responseType = 'json';
+    xhr.onload = function () {
+        let suggestions = this.response;
+        showAutocompleteSuggestions(suggestions);
+    };
+    xhr.send();
+}
+
+function acHandl() {
     let searchField = document.querySelector('.search-field');
     
     let query = searchField.value.trim();
@@ -199,5 +200,5 @@ window.onload = function () {
     document.querySelector('.per-page-btn').onchange = perPageBtnHandler;
     document.querySelector('.search-btn').onclick = searchBtnHandler;
     
-    document.querySelector('.search-field').addEventListener('input',autocompleteHandler);
-}
+    document.querySelector('.search-field').addEventListener('input', acHandl);
+};
