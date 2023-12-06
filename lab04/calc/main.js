@@ -229,6 +229,9 @@ function clickHandler(event) {
         case "result":
             displayResult();
             break;
+        default:
+            addDigit(target.textContent);
+            break;
         }
     }
 }
