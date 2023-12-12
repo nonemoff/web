@@ -28,7 +28,7 @@ footer {
 
 main {
   flex: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 a {
@@ -57,7 +57,7 @@ p, h1, ul {
     flex: 2 140px;
 }
 .header-button:nth-of-type(3) {
-    flex: 2 160px;
+    flex: 3 160px;
 }
 
 .header-button:hover {
