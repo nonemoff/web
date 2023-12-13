@@ -1,35 +1,16 @@
-.col{
-    margin: 10px;
-}
-.info{
-    background-color: #3a7ab7;
-    color: #fff;
-    padding: 30px;
+body {
+    font-family: 'Kalnia', serif;
+    font-weight: 200;
 }
 
-.info h1{
-    font-size: 72px;
+.main-line {
+    font-weight: 700;
+    font-size: 128px;
 }
 
-.info p{
-    font-size: 24px;
-}
-
-.image{
+.first-row {
+    width: 100%;
+    background-color: #67729D;
     height: 300px;
-}
-
-ul {
-    list-style-type: none;
-    margin: 30px;
-    padding: 60px;
-    font-size: 24px;
-}
-
-.fbform{
-    background-color: #3a7ab7;
-}
-
-.pictures {
-    padding-bottom: 30px;
+    align-items: end;
 }
