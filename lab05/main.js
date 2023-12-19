@@ -98,8 +98,9 @@ function downloadData(page = 1) {
     let factsList = document.querySelector('.facts-list');
     let url = new URL(factsList.dataset.url);
     let perPage = document.querySelector('.per-page-btn').value;
-    let q = "million";
+    let q = document.querySelector('.search-field').value;
     url.searchParams.append('page', page);
+    url.searchParams.append('q', q);
     url.searchParams.append('per-page', perPage);
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
@@ -119,6 +120,7 @@ function perPageBtnHandler(event) {
 function pageBtnHandler(event) {
     if (event.target.dataset.page) {
         downloadData(event.target.dataset.page);
+        document.querySelector('.autocomplete-dropdown').style.display = 'none';
         window.scrollTo(0, 0);
     }
 }
@@ -143,29 +145,25 @@ function searchBtnHandler() {
             renderPaginationElement(this.response['_pagination']);
         };
         xhr.send();
+        document.querySelector('.autocomplete-dropdown').style.display = 'none';
     }
 }
 
 function showAutocompleteSuggestions(suggestions) {
     let autocompleteDropdown = document.querySelector('.autocomplete-dropdown');
-    // Clear existing suggestions
     autocompleteDropdown.innerHTML = '';
 
-    // Display suggestions in the dropdown
     suggestions.forEach((suggestion) => {
         let suggestionItem = document.createElement('div');
         suggestionItem.classList.add('autocomplete-item');
         suggestionItem.textContent = suggestion;
         suggestionItem.addEventListener('click', () => {
-            // Set selected suggestion as the search query
             document.querySelector('.search-field').value = suggestion;
-            // Hide the autocomplete dropdown
             autocompleteDropdown.innerHTML = '';
         });
         autocompleteDropdown.appendChild(suggestionItem);
     });
 
-    // Show the autocomplete dropdown
     autocompleteDropdown.style.display = 'block';
 }
 
@@ -189,7 +187,6 @@ function acHandl() {
     if (query !== '') {
         autocomplete(query);
     } else {
-        // Hide the autocomplete dropdown if the search field is empty
         document.querySelector('.autocomplete-dropdown').style.display = 'none';
     }
 }
